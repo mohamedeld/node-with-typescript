@@ -1,19 +1,9 @@
-import * as http from 'http';
 
-const server = http.createServer((req,res)=>{
-  res.writeHead(200,{"Content-Type":"application/json"})
-  const data = {
-    products:[
-      {name:"first"},
-      {name:"second"},
-      {name:"third"},
-      {name:"fourth"},
-    ]
-  }
-  res.end(JSON.stringify(data))
-})
+import express from 'express';
 
+const app = express();
 
-server.listen(9000,()=>{
+const PORT = process.env.PORT || 9000;
+app.listen(PORT,()=>{
   console.log("Server is running on port 9000");
 })
